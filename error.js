@@ -15,6 +15,9 @@ class ExamplePlugin {
         this.video.on('mount', () => {
             console.log('mount');
         });
+        this.video.on('RING_VIDEO_DETAILS_LOAD_ERROR', (e) => {
+            console.log('RING_VIDEO_DETAILS_LOAD_ERROR', e);
+        });
     }
 }
 
