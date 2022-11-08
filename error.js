@@ -16,13 +16,17 @@ class ExamplePlugin {
             console.log('mount');
             window.parent.postMessage('ring-mount','*');
         });
+        this.video.on('pause', (e) => {
+            console.log('pause');
+            window.parent.postMessage('pause','*');
+        });
+        this.video.on('playing', (e) => {
+            console.log('playing');
+            window.parent.postMessage('playing','*');
+        });
         this.video.on('RING_VIDEO_DETAILS_LOAD_ERROR', (e) => {
             console.log('RING_VIDEO_DETAILS_LOAD_ERROR', e.detail);
-            const event = new CustomEvent('RING_VIDEO_DETAILS_LOAD_ERROR', {
-                detail: e.detail,
-                bubbles: true
-            });
-            this.video.dispatchEvent(event);
+            window.parent.postMessage('RING_VIDEO_DETAILS_LOAD_ERROR','*');
         });
     }
 }
