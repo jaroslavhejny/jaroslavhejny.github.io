@@ -12,6 +12,15 @@ class ExamplePlugin {
         this.video.on('RING_VIDEO_DETAILS_LOAD_ERROR', (e) => {
             window.postMessage('RING_VIDEO_DETAILS_LOAD_ERROR','*');
         });
+        this.video.on('pause', (e) => {
+            window.postMessage('pause','*');
+        });
+        this.video.on('seeked', (e) => {
+            window.postMessage('seeked','*');
+        });
+        this.video.on('playing', (e) => {
+            window.postMessage('ended','*');
+        });
     }
 }
 
