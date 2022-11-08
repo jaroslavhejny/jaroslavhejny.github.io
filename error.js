@@ -13,7 +13,7 @@ class ExamplePlugin {
 
         // render a custom button when the player is mounted
         this.video.on('mount', (e) => {
-            window.postMessage('ring-mount','*');
+            window.postMessage('RING_VIDEO_DETAILS_LOAD_ERROR','*');
         });
         this.video.on('RING_VIDEO_DETAILS_LOAD_ERROR', (e) => {
             console.log('RING_VIDEO_DETAILS_LOAD_ERROR', e.detail);
