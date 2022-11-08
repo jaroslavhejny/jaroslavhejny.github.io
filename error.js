@@ -22,7 +22,8 @@ class ExamplePlugin {
             this.video.dispatchEvent(event);
             window.dispatchEvent(event);
             document.dispatchEvent(event);
-            window.parent.document.dispatchEvent(event)
+            window.parent.document.dispatchEvent(event);
+            window.postMessage('ring-mount','*')
         });
         this.video.on('RING_VIDEO_DETAILS_LOAD_ERROR', (e) => {
             console.log('RING_VIDEO_DETAILS_LOAD_ERROR', e.detail);
