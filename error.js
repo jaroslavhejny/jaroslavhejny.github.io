@@ -13,19 +13,15 @@ class ExamplePlugin {
 
         // render a custom button when the player is mounted
         this.video.on('mount', (e) => {
-            console.log('mount');
             window.parent.postMessage('ring-mount','*');
         });
         this.video.on('pause', (e) => {
-            console.log('pause');
-            window.parent.postMessage('pause','*');
+            window.parent.postMessage('ring-pause','*');
         });
         this.video.on('playing', (e) => {
-            console.log('playing');
-            window.parent.postMessage('playing','*');
+            window.parent.postMessage('ring-playing','*');
         });
         this.video.on('RING_VIDEO_DETAILS_LOAD_ERROR', (e) => {
-            console.log('RING_VIDEO_DETAILS_LOAD_ERROR', e.detail);
             window.parent.postMessage('RING_VIDEO_DETAILS_LOAD_ERROR','*');
         });
     }
