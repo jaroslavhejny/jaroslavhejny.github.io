@@ -14,11 +14,12 @@ class ExamplePlugin {
         // render a custom button when the player is mounted
         this.video.on('mount', (e) => {
             console.log('mount');
-            const event = new CustomEvent('mount', {
+            const event = new CustomEvent('ring-mount', {
                 detail: e.detail,
                 bubbles: true
             });
             this.video.dispatchEvent(event);
+            window.dispatchEvent(event);
         });
         this.video.on('RING_VIDEO_DETAILS_LOAD_ERROR', (e) => {
             console.log('RING_VIDEO_DETAILS_LOAD_ERROR', e.detail);
