@@ -21,7 +21,7 @@ class ExamplePlugin {
                 detail: e.detail,
                 bubbles: true
             });
-            window.dispatchEvent(event);
+            this.video.dispatchEvent(event);
         });
     }
 }
