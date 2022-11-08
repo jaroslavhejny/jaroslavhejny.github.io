@@ -6,25 +6,32 @@ class ExamplePlugin {
     }
 
     init() {
+        console.log('loadPlugin');
+        // small jQuery-compatible utility built inside the player
+
+        var $ = flowplayer.mq;
+
+        // render a custom button when the player is mounted
         this.video.on('mount', (e) => {
             console.log('mount');
-            window.postMessage({data: 'video-mounted'},'*');
+            const event = new CustomEvent('ring-mount', {
+                detail: e.detail,
+                bubbles: true
+            });
+            this.video.dispatchEvent(event);
+            window.dispatchEvent(event);
+            document.dispatchEvent(event);
+            window.parent.document.dispatchEvent(event);
+            window.postMessage('ring-mount','*');
+            window.parent.postMessage('ring-mount','*');
         });
         this.video.on('RING_VIDEO_DETAILS_LOAD_ERROR', (e) => {
-            console.log('RING_VIDEO_DETAILS_LOAD_ERROR');
-            window.postMessage('RING_VIDEO_DETAILS_LOAD_ERROR','*');
-        });
-        this.video.on('pause', (e) => {
-            console.log('pause');
-            window.postMessage('pause','*');
-        });
-        this.video.on('seeked', (e) => {
-            console.log('seeked');
-            window.postMessage('seeked','*');
-        });
-        this.video.on('playing', (e) => {
-            console.log('playing');
-            window.postMessage('ended','*');
+            console.log('RING_VIDEO_DETAILS_LOAD_ERROR', e.detail);
+            const event = new CustomEvent('RING_VIDEO_DETAILS_LOAD_ERROR', {
+                detail: e.detail,
+                bubbles: true
+            });
+            this.video.dispatchEvent(event);
         });
     }
 }
