@@ -1,4 +1,4 @@
-export default class ExamplePlugin {
+class ExamplePlugin {
     constructor(opts, root, video) {
         this.opts = opts;
         this.root = root;
