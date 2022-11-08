@@ -13,28 +13,28 @@ class ExamplePlugin {
         var $ = flowplayer.mq;
 
         // render a custom button when the player is mounted
-        this.video.on(EVENT_TYPES.MOUNT, (e) => {
+        this.video.on('mount', (e) => {
             window.parent.postMessage('ring-mount','*');
         });
-        this.video.on(EVENT_TYPES.PAUSE, (e) => {
+        this.video.on('pause', (e) => {
             window.parent.postMessage('ring-pause','*');
         });
-        this.video.on(EVENT_TYPES.PLAYING, (e) => {
+        this.video.on('playing', (e) => {
             window.parent.postMessage('ring-playing','*');
         });
-        this.video.on(EVENT_TYPES.ENDED, (e) => {
+        this.video.on('ended', (e) => {
             window.parent.postMessage('ring-ended','*');
         });
-        this.video.on(EVENT_TYPES.SEEKED, (e) => {
+        this.video.on('seeked', (e) => {
             window.parent.postMessage('ring-seeked','*');
         });
-        this.video.on(EVENT_TYPES.PROGRESS, (e) => {
+        this.video.on('progress', (e) => {
             window.parent.postMessage('ring-progress','*');
         });
-        this.video.on(EVENT_TYPES.VOLUME_CHANGE, (e) => {
+        this.video.on('volume_change', (e) => {
             window.parent.postMessage('ring-volumechange','*');
         });
-        this.video.on(EVENT_TYPES.RING_VIDEO_DETAILS_LOAD_ERROR, (e) => {
+        this.video.on('RING_VIDEO_DETAILS_LOAD_ERROR', (e) => {
             window.parent.postMessage('RING_VIDEO_DETAILS_LOAD_ERROR','*');
         });
     }
