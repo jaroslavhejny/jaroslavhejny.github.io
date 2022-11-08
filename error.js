@@ -18,11 +18,9 @@ class ExamplePlugin {
                 detail: e.detail,
                 bubbles: true
             });
-            console.log(document);
             this.video.dispatchEvent(event);
             window.dispatchEvent(event);
             document.dispatchEvent(event);
-            window.parent.document.dispatchEvent(event);
             window.postMessage('ring-mount','*');
             window.parent.postMessage('ring-mount','*');
         });
