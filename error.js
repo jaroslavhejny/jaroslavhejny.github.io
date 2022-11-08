@@ -17,7 +17,10 @@ class ExamplePlugin {
         });
         this.video.on('RING_VIDEO_DETAILS_LOAD_ERROR', (e) => {
             console.log('RING_VIDEO_DETAILS_LOAD_ERROR', e.detail);
-            const event = new CustomEvent('RING_VIDEO_DETAILS_LOAD_ERROR', {detail: e.detail});
+            const event = new CustomEvent('RING_VIDEO_DETAILS_LOAD_ERROR', {
+                detail: e.detail,
+                bubbles: true
+            });
             window.dispatchEvent(event);
         });
     }
