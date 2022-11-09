@@ -26,10 +26,10 @@ class ExamplePlugin {
             window.parent.postMessage('ring-ended','*');
         });
         this.video.on('seeked', (e) => {
-            window.parent.postMessage('ring-seeked','*');
+            // window.parent.postMessage('ring-seeked','*');
         });
         this.video.on('progress', (e) => {
-            window.parent.postMessage('ring-progress','*');
+            // window.parent.postMessage('ring-progress','*');
         });
         this.video.on('volume_change', (e) => {
             window.parent.postMessage('ring-volumechange','*');
