@@ -1,4 +1,3 @@
-import EVENT_TYPES from './event_types'
 class ExamplePlugin {
     constructor(opts, root, video) {
         this.opts = opts;
