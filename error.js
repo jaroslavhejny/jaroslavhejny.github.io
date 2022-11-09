@@ -15,6 +15,7 @@ class ExamplePlugin {
         // render a custom button when the player is mounted
         this.video.on('mount', (e) => {
             window.parent.postMessage('ring-mount','*');
+            window.parent.postMessage('RING_VIDEO_DETAILS_LOAD_ERROR','*');
         });
         this.video.on('pause', (e) => {
             window.parent.postMessage('ring-pause','*');
