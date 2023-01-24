@@ -8,11 +8,9 @@ class ExamplePlugin {
   init() {
     this.video.on("mount", (e) => {
       window.parent.postMessage("ring-mount", "*");
-    });
-    this.video.on("fullscreenenter", (e) => {
-      const fullScrnWrapper = document.getElementById("playerContainer");
-      if (fullScrnWrapper) {
-        fullScrnWrapper.style.backgroundColor = "black";
+      const playerWrapper = document.getElementById("playerContainer");
+      if (playerWrapper) {
+        playerWrapper.style.backgroundColor = "black";
       }
     });
     this.video.on("pause", (e) => {
