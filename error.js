@@ -6,9 +6,14 @@ class ExamplePlugin {
   }
 
   init() {
-    console.log("Brekeke");
+    console.log(this.video);
     this.video.on("mount", (e) => {
       window.parent.postMessage("ring-mount", "*");
+      console.log(document.getElementById("playerContainer"));
+      const fullScrnWrapper = document.getElementById("playerContainer");
+      if (fullScrnWrapper) {
+        fullScrnWrapper.style.backgroundColor = black;
+      }
     });
     this.video.on("pause", (e) => {
       window.parent.postMessage("ring-pause", "*");
