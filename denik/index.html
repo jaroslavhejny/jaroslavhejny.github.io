@@ -6,6 +6,28 @@
 </head>
 <body>
 <h1>Denik reklamy</h1>
+<button id="pasteBtn">Vlož URL</button>
 <input value="" id="denik" placeholder="vlož sem"/>
+<button id="button">Bez reklamy</button>
 </body>
 </html>
+<script>
+    const pasteButton = document.getElementById('pasteBtn');
+    const generateButton = document.getElementById('button');
+    const urlInput = document.getElementById('denik');
+    pasteButton.addEventListener('click', async () => {
+            try {
+                const text = await navigator.clipboard.readText()
+                console.log(text);
+                urlInput.value = text;
+            } catch (error) {
+                console.log('Failed to read clipboard');
+            }
+        });
+    generateButton.addEventListener('click', ()=>{
+        const url = document.getElementById('denik').value;
+        const newUrl = new URL(url);
+        const finalUrl = `${newUrl.origin}${newUrl.pathname}?demoseznam`
+        window.open(finalUrl, "_blank");
+    })
+</script>
