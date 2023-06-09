@@ -28,6 +28,9 @@ class ExamplePlugin {
         this.video.on('volume_change', (e) => {
             window.parent.postMessage('ring-volumechange', '*');
         });
+        this.video.on('error', (e) => {
+            window.parent.postMessage('ring-generic-error', '*');
+        });
         this.video.on('RING_VIDEO_DETAILS_LOAD_ERROR', (e) => {
             window.parent.postMessage('RING_VIDEO_DETAILS_LOAD_ERROR', '*');
         });
