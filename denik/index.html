@@ -2,35 +2,19 @@
 <html lang="en">
 <title>Deník</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link href="style.css" rel="stylesheet">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-<h1>Denik reklamy</h1>
-<button id="pasteBtn">Vlož URL</button>
-<input value="" id="denik" placeholder="vlož sem"/>
-<button id="button">Bez reklamy</button>
+<h1>Deník reklamy</h1>
+<div class="main">
+    <button id="pasteBtn" class="btn btn-info">Vlož URL</button>
+    <input value="" id="denik" placeholder="vlož sem"/>
+    <button id="button" class="btn btn-primary">Bez reklamy</button>
+</div>
 </body>
 </html>
-<script>
-    const pasteButton = document.getElementById('pasteBtn');
-    const generateButton = document.getElementById('button');
-    const urlInput = document.getElementById('denik');
-    pasteButton.addEventListener('click', async () => {
-            try {
-                const text = await navigator.clipboard.readText()
-                console.log(text);
-                urlInput.value = text;
-            } catch (error) {
-                console.log('Failed to read clipboard');
-            }
-        });
-    generateButton.addEventListener('click', ()=>{
-        const url = document.getElementById('denik').value;
-        const newUrl = new URL(url);
-        const finalUrl = `${newUrl.origin}${newUrl.pathname}?demoseznam`
-        window.open(finalUrl, "_blank");
-    })
-</script>
+<script src="script.js"></script>

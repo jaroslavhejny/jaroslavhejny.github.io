@@ -1,0 +1,31 @@
+body {
+    padding: 10px;
+}
+
+.main {
+    max-width: 500px;
+    display: grid;
+    grid-template-areas: "input input" "insert generate";
+    grid-gap: 5px;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+    grid-auto-columns: 1fr;
+}
+
+#denik {
+    width: 100%;
+    grid-area: input;
+    text-align: center;
+}
+
+#pasteBtn {
+    grid-area: insert;
+}
+
+
+#button {
+    grid-area: generate;
+}
